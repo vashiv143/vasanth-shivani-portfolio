@@ -13,24 +13,25 @@ window.addEventListener("load", function() {
         loader.style.display = "none";
     }
 });
-const contactForm = document.getElementById("contactForm");
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("contactForm");
 
-if (contactForm) {
-contactForm.addEventListener("submit", function(e) {
-e.preventDefault();
+  if (!form) return;
 
-const name = document.getElementById("name").value;
-const message = document.getElementById("message").value;
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-const email = "vasanth200808@gmail.com";
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
 
-const subject = encodeURIComponent("Website Message");
-const body = encodeURIComponent(
-  "Name: " + name + "\nMessage: " + message
-);
+    const subject = encodeURIComponent("Website Message");
+    const body = encodeURIComponent(
+      "Name: " + name + "\nMessage: " + message
+    );
 
-window.location.href =
-  "mailto:" + email + "?subject=" + subject + "&body=" + body;
-
+    window.open(
+      "mailto:vasanth200808@gmail.com?subject=" + subject + "&body=" + body,
+      "_self"
+    );
+  });
 });
-}
