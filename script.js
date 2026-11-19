@@ -15,6 +15,26 @@ window.addEventListener("load", function() {
 });
 document.addEventListener("DOMContentLoaded", function() {
   const form = document.getElementById("contactForm");
+  document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("contactForm");
+
+  if (form) {
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const message = document.getElementById("message").value;
+
+      const subject = encodeURIComponent("Website Message");
+      const body = encodeURIComponent(
+        "Name: " + name + "\nMessage: " + message
+      );
+
+      window.location.href =
+        "mailto:vasanthnaveen2008?subject=" + subject + "&body=" + body;
+    });
+  }
+});
 
   if (!form) return;
 
@@ -30,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
     );
 
     window.open(
-      "mailto:vasanth200808@gmail.com?subject=" + subject + "&body=" + body,
+      "mailto:vasanthnaveen2008@gmail.com?subject=" + subject + "&body=" + body,
       "_self"
     );
   });
